@@ -97,7 +97,10 @@ module Liquid
       context.registers[:for][@name] = from + segment.length
 
       context.stack do
-        segment.each_with_index do |item, index|
+        index = -1
+        while (index += 1) < segment.size
+          item = segment[index]
+
           context[@variable_name] = item
           context['forloop'.freeze] = {
             'name'.freeze    => @name,
