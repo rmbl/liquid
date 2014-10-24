@@ -26,7 +26,7 @@ module Liquid
       if e.is_a?(Liquid::Error)
         e.to_s
       else
-        "Liquid error: #{e.to_s}"
+        "Liquid error: #{e.to_s}: #{e.backtrace.join(' => ')}"
       end
     end
 
